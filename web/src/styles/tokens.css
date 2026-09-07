@@ -1,0 +1,24 @@
+:root {
+  --color-bg: #f6f3ee;
+  --color-surface: #ffffff;
+  --color-ink: #161513;
+  --color-ink-soft: rgba(22, 21, 19, 0.62);
+  --color-ink-faint: rgba(22, 21, 19, 0.38);
+  --color-line: rgba(22, 21, 19, 0.15);
+  --color-line-strong: rgba(22, 21, 19, 0.3);
+  --color-accent: #d8481b;
+  --color-accent-ink: #fffaf6;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 20px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 72px;
+
+  --radius: 2px;
+}

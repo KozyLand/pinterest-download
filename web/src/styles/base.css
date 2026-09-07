@@ -1,0 +1,395 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.shell {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Boutons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease, opacity 0.12s ease;
+}
+
+.btn:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.btn-accent:hover {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Accueil ---------- */
+
+.masthead {
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-5);
+  max-width: 640px;
+  padding-bottom: var(--space-7);
+}
+
+.pitch {
+  font-size: 1.2rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.auth-error {
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-3);
+  color: var(--color-ink);
+  font-size: 0.9rem;
+}
+
+.foot {
+  border-top: 1px solid var(--color-line);
+  padding: var(--space-4) 0 var(--space-5);
+  color: var(--color-ink-faint);
+  font-size: 0.8rem;
+}
+
+/* ---------- Barre du haut (connecté) ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-line);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.wordmark-sm {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: var(--space-5) 0 var(--space-4);
+}
+
+/* ---------- Grille de tableaux ---------- */
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  padding-bottom: var(--space-7);
+}
+
+.board-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color 0.12s ease;
+}
+
+.board-card:hover {
+  border-color: var(--color-ink);
+}
+
+.board-cover {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-line);
+  background-size: cover;
+  background-position: center;
+}
+
+.board-name {
+  font-weight: 600;
+  padding: var(--space-3) var(--space-3) 0;
+}
+
+.board-count {
+  color: var(--color-ink-soft);
+  font-size: 0.82rem;
+  padding: var(--space-1) var(--space-3) var(--space-3);
+}
+
+.empty-state {
+  color: var(--color-ink-soft);
+  padding: var(--space-5) 0;
+}
+
+/* ---------- Vue tableau ---------- */
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.board-header-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.board-header h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.board-header .count {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
+
+.board-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.selection-count {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+/* ---------- Progression ---------- */
+
+.progress-wrap {
+  padding: var(--space-6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 420px;
+  height: 3px;
+  background: var(--color-line);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+/* ---------- Grille masonry ---------- */
+
+.masonry {
+  columns: 4 220px;
+  column-gap: var(--space-4);
+  padding: var(--space-4) 0 var(--space-7);
+}
+
+@media (max-width: 900px) {
+  .masonry {
+    columns: 2 180px;
+  }
+}
+
+@media (max-width: 520px) {
+  .masonry {
+    columns: 1;
+  }
+}
+
+.pin {
+  break-inside: avoid;
+  margin: 0 0 var(--space-4);
+  position: relative;
+}
+
+.pin img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--color-line);
+}
+
+.pin-check {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--color-surface);
+  background: rgba(22, 21, 19, 0.35);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-check svg {
+  display: none;
+  width: 13px;
+  height: 13px;
+  stroke: var(--color-accent-ink);
+}
+
+.pin.selected .pin-check {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.pin.selected .pin-check svg {
+  display: block;
+}
+
+/* ---------- Résultat ZIP ---------- */
+
+.zip-report {
+  border-top: 1px solid var(--color-line);
+  margin-top: var(--space-4);
+  padding: var(--space-4) 0 var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.zip-report h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.failed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.failed-list li {
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: var(--space-2);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
